@@ -2,6 +2,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Purpose
+
+A Microservice-App for searching, sorting, and viewing
+**CFMC Production Formulas and Specs**. The data is propietary, so it cannot be presented alongside the repo.
+
+## Directory Structure
+
+- public
+- src
+  - App
+  - components
+  - config
+  - js
+  - services
+    - testing
+  - styles
+
 ## Available Scripts
 
 In the project directory, you can run:
