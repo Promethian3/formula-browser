@@ -1,0 +1,127 @@
+$primary-color: #F1FAEE;
+$secondary-color: #457B9D;
+$terciary-color: #A8DADC;
+$font-color: #1D3557;
+$splash-color: #E63946;
+
+$font-fam: "Helvetica Nue", Helvetica, Arial sans-serif;
+$base-ft-size: 20px;
+
+/* Nav-Bar Vars*/
+$nav-bar-height: 60px;
+$nav-bar-font-size: 25px;
+$nav-item-padding: 10px;
+
+$content-padding: 25px;
+
+@mixin ft-size($level) {
+    font-size: $base-ft-size + ($level * 5px);
+}
+
+* {
+    &::-webkit-scrollbar { display: none;}
+    background-color: $primary-color;
+    color: $font-color;
+    font-family: $font-fam;
+    font-weight: bold;
+    padding: 0;
+    p, h4, h3, h2, h1 { margin: 1%; }
+
+    p {
+        @include ft-size(0);
+        font-weight: normal;
+    }
+    h4 { @include ft-size(1); }
+    h3 { @include ft-size(2); }
+    h2 { @include ft-size(3); }
+    h1 { @include ft-size(4); }
+}
+body {
+    min-width: 570px;
+    margin: 0;
+}
+
+#root {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    nav #navbar{
+        display: inline-flex;
+        flex-flow: row nowrap;
+        width: 100%;
+        height: $nav-bar-height;
+
+        align-items: center;
+        font-size: $nav-bar-font-size;
+        background-color: $secondary-color;
+        * { background-color: $secondary-color;}
+    
+        .nav-item {
+            padding: $nav-item-padding;
+            text-decoration: none;
+    
+            .nav-icon { fill: $primary-color };
+        }
+    
+        .nav-item:hover {
+            background-color: $terciary-color;
+            * { background-color: $terciary-color; }
+            .nav-icon { fill: $font-color };
+            border-radius: 3px;
+        }
+    
+        .search-bar {   
+            display: flex;
+            padding: $nav-item-padding;
+        }
+    }
+
+
+    main #content {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        // height: calc(100% - calc($nav-bar-height));
+        padding: $content-padding;
+        background: $primary-color;
+        border:3px solid $secondary-color;
+        * { overflow-y: hidden; }
+    
+        table {
+            border-collapse: collapse;
+            display: inline-table;
+            td { 
+                cursor: pointer;
+                text-align: center; 
+            }
+            th {
+                padding: 15px 0;
+                background-color: $font-color;
+                color: $primary-color;
+            }
+            td, th {
+                border: 2px solid $font-color;
+                padding: 10px;
+            }
+            tbody {
+                tr {
+                    &:nth-child(odd) { td { background-color: $terciary-color; } }
+                    &:nth-child(even) { td { background-color: $primary-color; } }
+                    &:hover { 
+                        td { 
+                            background-color: $secondary-color;
+                            color: $primary-color;
+                        } 
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+
+
